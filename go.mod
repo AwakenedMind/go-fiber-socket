@@ -3,6 +3,7 @@ module github.com/AwakenedMind/go-fiber-socket
 go 1.18
 
 require github.com/gofiber/websocket/v2 v2.0.25
+require github.com/google/uuid v1.3.0
 
 require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
