@@ -489,3 +489,15 @@ func (fs *FiberSocket) Broadcast(message []byte, except bool, mType ...int) {
 func (fs *FiberSocket) Fire(event string, data []byte) {
 	fs.fireEvent(event, data, nil)
 }
+
+// Fires event on all connections.
+func fireGlobalEvent(event string, eventId *string, data []byte, error error) {
+	for _, fs := range pool.GetAll() {
+		fs.fireEvent(event, data, error)
+	}
+}
+
+// Fire custom event on all connections
+func Fire(event string, eventId *string, data []byte) {
+	fireGlobalEvent(event, eventId, data, nil)
+}
