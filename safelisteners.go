@@ -22,9 +22,8 @@ func (l *SafeListeners) get(event string) []eventCallback {
 	}
 
 	ret := make([]eventCallback, 0)
-	ret = append(ret, l.list[event]...)
-	// for _, v := range l.list[event] {
-	// 	ret = append(ret, v)
-	// }
+	for _, v := range l.list[event] {
+		ret = append(ret, v)
+	}
 	return ret
 }
